@@ -1,0 +1,18 @@
+.Footer {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 2rem;
+    &__logo {
+        width: 122px;
+        margin: 2rem;
+    }
+    &__text {
+        font-size: 24px;
+        font-weight: 500;
+        color: white;
+    }
+}

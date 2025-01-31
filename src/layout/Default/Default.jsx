@@ -1,12 +1,18 @@
 import React from "react";
 import { Outlet } from "react-router";
 import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
+
+import styles from "./Default.module.scss"
 
 export default function Default() {
     return(
         <>
             <Header/>
-            <Outlet/>
+                <div className={styles.Content}>
+                    <Outlet/>
+                </div>
+            <Footer />
         </>
     )
 }
