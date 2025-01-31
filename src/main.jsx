@@ -6,7 +6,7 @@ import Default from "./layout/Default/Default";
 import "./assets/styles/index.scss"
 
 // Pages
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
 import About from "./pages/About"
 
 const root = document.getElementById("root");
