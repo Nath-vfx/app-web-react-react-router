@@ -9,6 +9,7 @@ export default function Location() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
+  let [count, setCount] = useState(1);
 
   useEffect(() => {
     fetch("/logements.json")
@@ -29,6 +30,18 @@ export default function Location() {
       });
   }, []);
 
+  const nextSlide = () => {
+    setCount((prevCount) =>
+      prevCount < location.pictures.length ? prevCount + 1 : 1,
+    );
+  };
+
+  const prevSlide = () => {
+    setCount((prevCount) =>
+      prevCount > 1 ? prevCount - 1 : location.pictures.length,
+    );
+  };
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -39,6 +52,32 @@ export default function Location() {
   return (
     <>
       <div className={styles.Location} key={location.id}>
+        <div className={styles.Location__carrousel}>
+          {location.pictures.map((picture, index) => (
+            <img
+              key={index}
+              className={styles.Location__carrousel__item}
+              src={picture}
+              alt={`Slide ${index + 1}`}
+              style={{ display: count - 1 === index ? "block" : "none" }}
+            />
+          ))}
+          <button
+            className={styles.Location__carrousel__arrowLeft}
+            onClick={prevSlide}
+          >
+            <img src="/arrow-left.svg" />
+          </button>
+          <button
+            className={styles.Location__carrousel__arrowRight}
+            onClick={nextSlide}
+          >
+            <img src="/arrow-right.svg" />
+          </button>
+          <span className={styles.Location__carrousel__count}>
+            {count}/{location.pictures.length}
+          </span>
+        </div>
         <div className={styles.Location__headline}>
           <hgroup className={styles.Location__headline__hgroup}>
             <h1 className={styles.Location__headline__hgroup__title}>
