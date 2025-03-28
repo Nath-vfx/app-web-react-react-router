@@ -1,6 +1,6 @@
 .Home {
     &__hero {
-        background: url('landscape.jpg');
+        background: url("landscape.jpg");
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
@@ -10,20 +10,19 @@
         padding: 5rem 0;
         border-radius: 25px;
         position: relative;
-        box-shadow: 0 4px 4px 0 rgba($color: #000000, $alpha: .2);
+        box-shadow: 0 4px 4px 0 rgba($color: #000000, $alpha: 0.2);
         &::after {
             content: "";
             position: absolute;
             border-radius: 25px;
             width: 100%;
             height: 100%;
-            background-color: rgba($color: #000000, $alpha: .6);
-
+            background-color: rgba($color: #000000, $alpha: 0.6);
         }
         &__title {
             color: white;
             z-index: 10;
-            text-shadow: 0 4px 4px 0 rgba($color: #000000, $alpha: .2);
+            text-shadow: 0 4px 4px 0 rgba($color: #000000, $alpha: 0.2);
         }
     }
     &__locations {
@@ -36,7 +35,7 @@
         column-gap: 2rem;
         row-gap: 2rem;
         &__location {
-            background: #FF6060;
+            background-color: #ff6060;
             color: white;
             font-size: 18px;
             font-weight: 700;
@@ -45,8 +44,24 @@
             height: 340px;
             display: flex;
             align-items: end;
+            position: relative;
+            &::after {
+                content: "";
+                position: absolute;
+                border-radius: 10px;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(
+                    180deg,
+                    rgba(0, 0, 0, 0) 0%,
+                    rgba(0, 0, 0, 0.5) 100%
+                );
+            }
             &__title {
                 width: 50%;
+                z-index: 10;
             }
         }
     }

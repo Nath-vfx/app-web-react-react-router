@@ -1,0 +1,36 @@
+.Details {
+    height: max-content;
+    &__title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        padding: 1rem;
+        display: inline-block;
+        background-color: #FF6060;
+        color: white;
+        border-radius: 12px;
+        width: 100%;
+        position: relative;
+        z-index: 1;
+        &::after {
+            content: url(/arrow.svg);
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+    &__content {
+        z-index: -1;
+        transition: all 0.5s;
+        transform: scaleY(0) translateY(-100%);
+        padding: 0 1rem;
+        
+        &__active {
+            transform: scaleY(1);
+            transition: all 0.5s;
+            background: #FBFBFB;
+            padding: 3rem 1rem;
+            display: block;
+        }
+    }
+}
