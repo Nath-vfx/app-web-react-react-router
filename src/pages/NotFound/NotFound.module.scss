@@ -1,0 +1,22 @@
+.NotFound {
+    display: flex;
+    flex-direction: column;
+    gap: 140px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 140px;
+    &__title {
+        font-size: 288px;
+        font-weight: 700;
+        color: #ff6060;
+    }
+    &__text {
+        font-size: 36px;
+        color: #ff6060;
+        font-weight: 500;
+    }
+    &__link {
+        text-decoration: underline;
+        font-size: 18px;
+    }
+}
