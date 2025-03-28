@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import Rating from "../../components/Rating/Rating";
 import Details from "../../components/Details/Details";
-import { Link } from "react-router-dom";
+import styles from "./Location.module.scss";
 
 export default function Location() {
   const [location, setLocation] = useState([]);
@@ -38,16 +38,18 @@ export default function Location() {
   }
   return (
     <>
-      <div key={location.id}>
-        <h1 className="Location__title">{location.title}</h1>
-        <p className="Location__location">{location.location}</p>
-        <div className="Location__tags">
-          {location.tags.map((tag) => (
-            <span key={tag} className="Location__tags__tag">
-              {tag}
-            </span>
-          ))}
-        </div>
+      <div className={styles.Location} key={location.id}>
+        <hgroup className={styles.Location__headline}>
+          <h1 className={styles.Location__headline__title}>{location.title}</h1>
+          <p className="Location__location">{location.location}</p>
+          <div className="Location__tags">
+            {location.tags.map((tag) => (
+              <span key={tag} className="Location__tags__tag">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </hgroup>
         <div className="Location__host">
           <h2 className="Location__host__name">{location.host.name}</h2>
           <img
