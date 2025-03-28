@@ -1,8 +1,66 @@
 .Location {
-    &__main {
+    display: flex;
+    flex-direction: column;
+    &__headline {
         display: flex;
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 1.5rem;
+        &__hgroup {
+            color: #ff6060;
+            &__title {
+                font-weight: 500;
+                font-size: 36px;
+            }
+            &__local {
+                color: black;
+                font-weight: 500;
+                font-size: 18px;
+                margin-bottom: 1rem;
+            }
+            &__tags {
+                display: flex;
+                flex-direction: row;
+                gap: 1rem;
+                &__tag {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 115px;
+                    color: white;
+                    font-size: 14px;
+                    font-weight: 700;
+                    background-color: #ff6060;
+                    border-radius: 10px;
+                    padding: 4px 0;
+                    text-align: center;
+                }
+            }
+        }
+        &__host {
+            &__infos {
+                display: flex;
+                color: #ff6060;
+                gap: 1rem;
+                &__name {
+                    font-weight: 300;
+                    font-size: 18px;
+                }
+                &__avatar {
+                    border-radius: 50%;
+                    width: 64px;
+                    height: 64px;
+                }
+            }
+        }
     }
-    &__hgroup {
+    &__details {
         display: flex;
+        gap: 6rem;
+    }
+    &__rating {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 1rem;
     }
 }

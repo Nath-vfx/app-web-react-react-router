@@ -39,30 +39,46 @@ export default function Location() {
   return (
     <>
       <div className={styles.Location} key={location.id}>
-        <hgroup className={styles.Location__headline}>
-          <h1 className={styles.Location__headline__title}>{location.title}</h1>
-          <p className="Location__location">{location.location}</p>
-          <div className="Location__tags">
-            {location.tags.map((tag) => (
-              <span key={tag} className="Location__tags__tag">
-                {tag}
-              </span>
-            ))}
+        <div className={styles.Location__headline}>
+          <hgroup className={styles.Location__headline__hgroup}>
+            <h1 className={styles.Location__headline__hgroup__title}>
+              {location.title}
+            </h1>
+            <p className={styles.Location__headline__hgroup__local}>
+              {location.location}
+            </p>
+            <div className={styles.Location__headline__hgroup__tags}>
+              {location.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className={styles.Location__headline__hgroup__tags__tag}
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </hgroup>
+          <div className={styles.Location__headline__host}>
+            <div className={styles.Location__headline__host__infos}>
+              <h2 className={styles.Location__headline__host__infos__name}>
+                {location.host.name}
+              </h2>
+              <img
+                className={styles.Location__headline__host__infos__avatar}
+                src={location.host.picture}
+                alt=""
+              />
+            </div>
+            <div className={styles.Location__rating}>
+              <Rating score={location.rating} />
+            </div>
           </div>
-        </hgroup>
-        <div className="Location__host">
-          <h2 className="Location__host__name">{location.host.name}</h2>
-          <img
-            className="Location__host__avatar"
-            src={location.host.picture}
-            alt=""
-          />
         </div>
-        <div className="Location__rating">
-          <Rating score={location.rating} />
+
+        <div className={styles.Location__details}>
+          <Details summary="Description" content={location.description} />
+          <Details summary="Équipements" content={location.equipments} />
         </div>
-        <Details summary="Description" content={location.description} />
-        <Details summary="Équipements" content={location.equipments} />
       </div>
     </>
   );
