@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router";
+import { useParams, useNavigate } from "react-router-dom";
 import Rating from "../../components/Rating/Rating";
 import Details from "../../components/Details/Details";
 import styles from "./Location.module.scss";
@@ -9,6 +9,7 @@ export default function Location() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
+  const navigate = useNavigate();
   let [count, setCount] = useState(1);
 
   useEffect(() => {
@@ -21,14 +22,18 @@ export default function Location() {
       })
       .then((data) => {
         const location = data.find((location) => location.id === id);
+        if (!location) {
+          navigate("/404", { replace: true });
+          return;
+        }
         setLocation(location);
         setLoading(false);
       })
       .catch((error) => {
-        setError(error.message);
-        setLoading(false);
+        console.error("Erreur lors du chargement des données:", error);
+        navigate("/404", { replace: true });
       });
-  }, []);
+  }, [id, navigate]);
 
   const nextSlide = () => {
     setCount((prevCount) =>

@@ -1,5 +1,6 @@
+import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router"; // Utilisez react-router-dom
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Default from "./layout/Default/Default";
 
 import "./assets/styles/index.scss";
@@ -16,10 +17,11 @@ ReactDOM.createRoot(root).render(
   <BrowserRouter>
     <Routes>
       <Route element={<Default />}>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/a-propos" element={<About />}></Route>
-        <Route path="/location/:id" element={<Location />}></Route>
-        <Route path="*" element={<NotFound />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/a-propos" element={<About />} />
+        <Route path="/location/:id" element={<Location />} />
+        <Route path="/404" element={<NotFound />} />
+        <Route path="*" element={<Navigate to="/404" />} />
       </Route>
     </Routes>
   </BrowserRouter>,
