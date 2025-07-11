@@ -2,21 +2,20 @@ import style from "./Details.module.scss";
 import { useState } from "react";
 
 export default function Details({ summary, content }) {
-  const [className, setClassName] = useState(style.Details__content);
-
+  const [isActive, setIsActive] = useState(false);
+  
   function toggleActive() {
-    if (className === style.Details__content) {
-      setClassName(style.Details__content__active);
-    } else {
-      setClassName(style.Details__content);
-    }
+    setIsActive(!isActive);
   }
+  
+  const contentClass = isActive ? style.Details__content__active : style.Details__content;
+  const titleClass = isActive ? `${style.Details__title} ${style.Details__title__active}` : style.Details__title;
 
   return (
     <>
       <div className={style.Details} onClick={toggleActive}>
-        <h3 className={style.Details__title}>{summary}</h3>
-        <p className={className}>
+        <h3 className={titleClass}>{summary}</h3>
+        <p className={contentClass}>
           {content}
         </p>
       </div>

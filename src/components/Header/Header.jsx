@@ -5,7 +5,9 @@ export default function Header() {
   return (
     <>
       <header className={styles.Header}>
-        <img className={styles.Header__logo} src="/logo.svg" alt="" />
+        <NavLink to="/">
+          <img className={styles.Header__logo} src="/logo.svg" alt="" />
+        </NavLink>
         <nav className={styles.Header__nav}>
           <NavLink className={styles.Header__nav__item} to="/">
             Accueil

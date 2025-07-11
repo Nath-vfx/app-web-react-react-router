@@ -23,7 +23,12 @@
             position: absolute;
             right: 1rem;
             top: 50%;
-            transform: translateY(-50%);
+            transform: translateY(-50%) rotate(180deg);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        &__active::after {
+            transform: translateY(-50%) rotate(0deg);
         }
     }
     &__content {

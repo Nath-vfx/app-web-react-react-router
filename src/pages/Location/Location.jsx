@@ -62,21 +62,25 @@ export default function Location() {
               style={{ display: count - 1 === index ? "block" : "none" }}
             />
           ))}
-          <button
-            className={styles.Location__carrousel__arrowLeft}
-            onClick={prevSlide}
-          >
-            <img src="/arrow-left.svg" />
-          </button>
-          <button
-            className={styles.Location__carrousel__arrowRight}
-            onClick={nextSlide}
-          >
-            <img src="/arrow-right.svg" />
-          </button>
-          <span className={styles.Location__carrousel__count}>
-            {count}/{location.pictures.length}
-          </span>
+          {location.pictures.length > 1 && (
+            <>
+              <button
+                className={styles.Location__carrousel__arrowLeft}
+                onClick={prevSlide}
+              >
+                <img src="/arrow-left.svg" />
+              </button>
+              <button
+                className={styles.Location__carrousel__arrowRight}
+                onClick={nextSlide}
+              >
+                <img src="/arrow-right.svg" />
+              </button>
+              <span className={styles.Location__carrousel__count}>
+                {count}/{location.pictures.length}
+              </span>
+            </>
+          )}
         </div>
         <div className={styles.Location__headline}>
           <hgroup className={styles.Location__headline__hgroup}>
