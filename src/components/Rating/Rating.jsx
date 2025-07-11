@@ -1,6 +1,7 @@
+import PropTypes from "prop-types";
 import styles from "./Rating.module.scss";
 
-export default function Rating({ score }) {
+function Rating({ score }) {
   if (score > 5) {
     score = 5;
   } else if (score < 0) {
@@ -17,3 +18,9 @@ export default function Rating({ score }) {
     </div>
   );
 }
+
+Rating.propTypes = {
+  score: PropTypes.number.isRequired,
+};
+
+export default Rating;
