@@ -118,7 +118,7 @@ export default function Location() {
               />
             </div>
             <div className={styles.Location__rating}>
-              <Rating score={location.rating} />
+              <Rating score={parseInt(location.rating)} />
             </div>
           </div>
         </div>
