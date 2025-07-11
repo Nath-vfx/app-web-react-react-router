@@ -38,13 +38,21 @@
     }
     &__locations {
         background-color: #f6f6f6;
-        padding: 3rem;
-        margin: 3rem 0;
+        padding: 2rem 1rem;
+        margin: 1.5rem 0;
         border-radius: 25px;
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-        column-gap: 2rem;
-        row-gap: 2rem;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.5rem;
+        justify-content: center;
+        @media screen and (max-width: 768px) {
+            padding: 1rem 0.5rem;
+            margin: 1rem 0;
+            gap: 1rem;
+            background-color: white;
+            grid-template-columns: 1fr;
+            max-width: 100%;
+        }
         &__location {
             background-color: #ff6060;
             color: white;
@@ -52,10 +60,15 @@
             font-weight: 700;
             padding: 1.2rem;
             border-radius: 10px;
-            height: 340px;
+            height: 300px;
+            min-height: 200px;
             display: flex;
-            align-items: end;
+            align-items: flex-end;
             position: relative;
+            @media screen and (max-width: 768px) {
+                height: 250px;
+                border-radius: 10px;
+            }
             &::after {
                 content: "";
                 position: absolute;
@@ -71,8 +84,12 @@
                 );
             }
             &__title {
-                width: 50%;
+width: 80%;
                 z-index: 10;
+                @media screen and (max-width: 768px) {
+                    width: 90%;
+                    font-size: 16px;
+                }
             }
         }
     }
